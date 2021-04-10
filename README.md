@@ -1,0 +1,2 @@
+# protoscan
+Prototype Pollution Scanner
