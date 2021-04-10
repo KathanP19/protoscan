@@ -25,6 +25,7 @@ Usage of protoscan:
         Save Result to OutputFile
   -u    Scan Urls 
 ```
+*Warning : Use concurrency according to you pc spec* 
 * If you want to test then you can use the testurls.txt
 `cat testurls.txt | protoscan`
 
