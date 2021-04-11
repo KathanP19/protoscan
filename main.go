@@ -84,7 +84,6 @@ func ProtoScan() {
 		url := sc.Text()
 		//fmt.Println(url)
 		ctx, cancel := chromedp.NewContext(context.Background())
-		defer cancel()
 
 		// run task list
 		var res string
@@ -93,6 +92,7 @@ func ProtoScan() {
 				chromedp.Navigate(url+"&__proto__[protoscan]=protoscan"),
 				chromedp.Evaluate(`window.protoscan`, &res),
 			)
+			cancel()
 			if err != nil {
 				log.Printf(ErrorColor, url+" [Not Vulnerable]")
 				continue
@@ -102,6 +102,7 @@ func ProtoScan() {
 				chromedp.Navigate(url+"/"+"?__proto__[protoscan]=protoscan"),
 				chromedp.Evaluate(`window.protoscan`, &res),
 			)
+			cancel()
 			if err != nil {
 				log.Printf(ErrorColor, url+" [Not Vulnerable]")
 				continue
